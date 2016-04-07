@@ -7,6 +7,7 @@
 //{-msc} (Doesn't terminate properly)
 #include <exception>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 class Up {};

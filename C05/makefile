@@ -146,8 +146,6 @@ g++:  \
 	ArraySize.exe \
 	MinTest.exe \
 	TemplateFunctionAddress.exe \
-	StrTolower.$(OBJEXT) \
-	Tolower.exe \
 	ToLower2.exe \
 	ApplyGromit.exe \
 	PartialOrder.exe \
@@ -451,15 +449,6 @@ MinTest.exe: MinTest.cpp
 TemplateFunctionAddress.exe: TemplateFunctionAddress.cpp
 	$(CPP) $(CPPFLAGS) $(EXEFLAG)$@ $^
 	$@
-
-StrTolower.$(OBJEXT): StrTolower.cpp
-
-
-Tolower.exe: StrTolower.$(OBJEXT) Tolower.$(OBJEXT)
-	$(CPP) $(CPPFLAGS) $(EXEFLAG)$@ $^
-	$@
-
-Tolower.$(OBJEXT): Tolower.cpp
 
 ToLower2.exe: ToLower2.cpp
 	$(CPP) $(CPPFLAGS) $(EXEFLAG)$@ $^

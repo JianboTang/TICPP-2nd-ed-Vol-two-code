@@ -6,6 +6,7 @@
 // Use of set_terminate(). Also shows uncaught exceptions.
 #include <exception>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 void terminator() {

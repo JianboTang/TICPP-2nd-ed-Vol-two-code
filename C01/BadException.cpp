@@ -6,6 +6,7 @@
 #include <exception>    // For std::bad_exception
 #include <iostream>
 #include <cstdio>
+#include <stdlib.h>
 using namespace std;
 
 // Exception classes:

@@ -1,0 +1,42 @@
+1: //: C04:Strfile.cpp
+2: // From "Thinking in C++, Volume 2", by Bruce Eckel & Chuck Allison.
+3: // (c) 1995-2004 MindView, Inc. All Rights Reserved.
+4: // See source code use permissions stated in the file 'License.txt',
+5: // distributed with the code package available at www.MindView.net.
+6: // Stream I/O with files;
+7: // The difference between get() & getline().
+8: #include <fstream>
+9: #include <iostream>
+10: #include "../require.h"
+11: using namespace std;
+12: 
+13: int main() {
+14:   const int SZ = 100; // Buffer size;
+15:   char buf[SZ];
+16:   {
+17:     ifstream in("Strfile.cpp"); // Read
+18:     assure(in, "Strfile.cpp"); // Verify open
+19:     ofstream out("Strfile.out"); // Write
+20:     assure(out, "Strfile.out");
+21:     int i = 1; // Line counter
+22: 
+23:     // A less-convenient approach for line input:
+24:     while(in.get(buf, SZ)) { // Leaves \n in input
+25:       in.get(); // Throw away next character (\n)
+26:       cout << buf << endl; // Must add \n
+27:       // File output just like standard I/O:
+28:       out << i++ << ": " << buf << endl;
+29:     }
+30:   } // Destructors close in & out
+31: 
+32:   ifstream in("Strfile.out");
+33:   assure(in, "Strfile.out");
+34:   // More convenient line input:
+35:   while(in.getline(buf, SZ)) { // Removes \n
+36:     char* cp = buf;
+37:     while(*cp != ':')
+38:       ++cp;
+39:     cp += 2; // Past ": "
+40:     cout << cp << endl; // Must still add \n
+41:   }
+42: } ///:~

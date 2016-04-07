@@ -27,8 +27,8 @@ template<class To, class From> To safe_cast(From from) {
 }
 
 int main() {
-  void* p = 0;
-  int i = safe_cast<int>(p);
-  cout << "int cast okay" << endl;
-  //! char c = safe_cast<char>(p);
+  int* p = 0;
+  double* i = safe_cast<double*>(p);
+  cout << "double cast okay" << endl;
+  //!char* c = safe_cast<char*>(p);
 } ///:~
