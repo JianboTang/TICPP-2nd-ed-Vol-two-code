@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iterator>
 #include <algorithm>
+#include <memory>
 #include "Noisy.h"
 using namespace std;
 

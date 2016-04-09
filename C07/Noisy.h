@@ -18,7 +18,7 @@ public:
   Noisy() : id(create++) {
     cout << "d[" << id << "]" << endl;
   }
-  Noisy(const Noisy& rv) : id(rv.id) {
+  Noisy(const Noisy& rv) : id(rv.id + 10) {
     cout << "c[" << id << "]" << endl;
     ++copycons;
   }

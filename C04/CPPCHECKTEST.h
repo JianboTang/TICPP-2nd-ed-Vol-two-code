@@ -1,2 +1,11 @@
 //@//
+//: CPPCHECKTEST.h
+#ifndef CPPCHECKTEST_H
+#define CPPCHECKTEST_H
+//@//
+//: CPPCHECKTEST.h
+#ifndef CPPCHECKTEST_H
+#define CPPCHECKTEST_H
+//@//
 
+#endif // CPPCHECKTEST_H

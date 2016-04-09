@@ -65,8 +65,8 @@ int main() {
     random_shuffle(s.begin(), s.end());
     cout << s << endl;
   }
-  NString sa[] = { "aa", "b", "c", "d", "aa", "b",
-    "c", "d", "aa", "b", "c", "d", "aa", "b", "c"};
+  NString sa[] = { "a", "b", "c", "d", "a", "b",
+    "c", "d", "a", "b", "c", "d", "a", "b", "c"};
   const int SASZ = sizeof sa / sizeof *sa;
   vector<NString> ns(sa, sa + SASZ);
   print(ns.begin(), ns.end(), "ns", " ");

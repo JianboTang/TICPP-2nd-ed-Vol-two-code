@@ -31,8 +31,8 @@ int main(int argc, char* argv[]) {
   copy(istream_iterator<string>(in),
     istream_iterator<string>(), back_inserter(original));
   require(original.size() >= 4, "Must have four elements");
-  vector<NString> v(original.begin(), original.end()),
-    w(original.size() / 2);
+  vector<NString> v(original.begin(), original.end());
+  vector<NString> w(original.size() / 2);
   sort(v.begin(), v.end());
   print(v.begin(), v.end(), "sort");
   v = original;

@@ -1,0 +1,70 @@
+0: //: C07:StringDeque.cpp
+1: // From "Thinking in C++, Volume 2", by Bruce Eckel & Chuck Allison.
+2: // (c) 1995-2004 MindView, Inc. All Rights Reserved.
+3: // See source code use permissions stated in the file 'License.txt',
+4: // distributed with the code package available at www.MindView.net.
+5: // Converted from StringVector.cpp.
+6: #include <cstddef>
+7: #include <ctime>
+8: #include <deque>
+9: #include <fstream>
+10: #include <iostream>
+11: #include <iterator>
+12: #include <sstream>
+13: #include <string>
+14: #include <vector>
+15: #include "../require.h"
+16: using namespace std;
+17: 
+18: int main(int argc, char* argv[]) {
+19:   char* fname = "StringDeque.cpp";
+20:   if(argc > 1) fname = argv[1];
+21:   ifstream in(fname);
+22:   assure(in, fname);
+23:   vector<string> vstrings;
+24:   deque<string> dstrings;
+25:   string line;
+26:   // Time reading into vector:
+27:   clock_t ticks = clock();
+28:   while(getline(in, line))
+29:     vstrings.push_back(line);
+30:   ticks = clock() - ticks;
+31:   cout << "Read into vector: " << ticks << endl;
+32:   // Repeat for deque:
+33:   ifstream in2(fname);
+34:   assure(in2, fname);
+35:   ticks = clock();
+36:   while(getline(in2, line))
+37:     dstrings.push_back(line);
+38:   ticks = clock() - ticks;
+39:   cout << "Read into deque: " << ticks << endl;
+40:   // Now compare indexing:
+41:   ticks = clock();
+42:   for(size_t i = 0; i < vstrings.size(); i++) {
+43:     ostringstream ss;
+44:     ss << i;
+45:     vstrings[i] = ss.str() + ": " + vstrings[i];
+46:   }
+47:   ticks = clock() - ticks;
+48:   cout << "Indexing vector: " << ticks << endl;
+49:   ticks = clock();
+50:   for(size_t j = 0; j < dstrings.size(); j++) {
+51:     ostringstream ss;
+52:     ss << j;
+53:     dstrings[j] = ss.str() + ": " + dstrings[j];
+54:   }
+55:   ticks = clock() - ticks;
+56:   cout << "Indexing deque: " << ticks << endl;
+57:   // Compare iteration
+58:   ofstream tmp1("tmp1.tmp"), tmp2("tmp2.tmp");
+59:   ticks = clock();
+60:   copy(vstrings.begin(), vstrings.end(),
+61:     ostream_iterator<string>(tmp1, "\n"));
+62:   ticks = clock() - ticks;
+63:   cout << "Iterating vector: " << ticks << endl;
+64:   ticks = clock();
+65:   copy(dstrings.begin(), dstrings.end(),
+66:     ostream_iterator<string>(tmp2, "\n"));
+67:   ticks = clock() - ticks;
+68:   cout << "Iterating deque: " << ticks << endl;
+69: } ///:~
