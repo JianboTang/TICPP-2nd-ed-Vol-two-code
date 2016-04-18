@@ -195,6 +195,7 @@ g++:  \
 	TESTHEADER_TokenIterator.exe \
 	TESTHEADER_assocGen.exe \
 	TESTHEADER_SimpleGenerators.exe \
+	TokenIteratorTest.exe \
 	TESTHEADER_PrintValarray.exe
 
 edg:  \

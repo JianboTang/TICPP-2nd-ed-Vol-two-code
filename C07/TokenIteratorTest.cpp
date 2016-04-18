@@ -8,6 +8,7 @@
 #include <vector>
 #include <deque>
 #include <set>
+#include <string.h>
 #include "TokenIterator.h"
 #include "../require.h"
 using namespace std;
